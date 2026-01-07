@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryLearn - Learn Through Interactive Stories</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo" onclick="goToHome()">
+                <span class="logo-icon">📚</span>
+                <span class="logo-text">StoryLearn</span>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#" onclick="goToHome()" class="nav-link">Home</a>
+                <a href="#" onclick="goToSubjects()" class="nav-link">Subjects</a>
+                <a href="#" class="nav-link">About Us</a>
+                <a href="#" class="nav-link">Contact</a>
+            </div>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <!-- Home Page -->
+        <section id="homePage" class="page active">
+            <div class="hero-section">
+                <h1 class="hero-title">StoryLearn</h1>
+                <p class="hero-subtitle">Start the Story... Learn with Fun!</p>
+            </div>
+
+            <div class="container">
+                <div class="feature-box">
+                    <div class="feature-content">
+                        <div class="feature-icon">📖</div>
+                        <h2>Simple Idea Explanation</h2>
+                        <p class="feature-description">
+                            An interactive website that turns lessons into engaging stories, 
+                            where the student becomes the hero. Each question determines the 
+                            course of events - a correct answer continues the story naturally, 
+                            while a wrong answer slightly changes the events.
+                        </p>
+                    </div>
+                    <button class="btn-primary" onclick="goToSubjects()">
+                        Start Your Learning Journey
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="card-icon">⭐</div>
+                        <h3>Interactive Stories</h3>
+                        <p>Be the hero of the story and make decisions</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-icon">🏆</div>
+                        <h3>Fun Learning</h3>
+                        <p>Learn through exciting adventures</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-icon">✅</div>
+                        <h3>Instant Evaluation</h3>
+                        <p>Know your level instantly</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subjects Page -->
+        <section id="subjectsPage" class="page">
+            <div class="container">
+                <h2 class="page-title">Choose Your Subject</h2>
+                <div class="subjects-grid" id="subjectsGrid"></div>
+            </div>
+        </section>
+
+        <!-- Characters Page -->
+        <section id="charactersPage" class="page">
+            <div class="container">
+                <h2 class="page-title">Choose Your Character</h2>
+                <div class="characters-grid" id="charactersGrid"></div>
+            </div>
+        </section>
+
+        <!-- Story Page -->
+        <section id="storyPage" class="page">
+            <div class="container">
+                <div class="story-container">
+                    <div class="story-header" id="storyHeader"></div>
+                    <div class="story-text" id="storyText"></div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="storyProgress"></div>
+                        </div>
+                        <p class="progress-text" id="progressText"></p>
+                    </div>
+                    <div class="story-choices">
+                        <div id="choicesContainer"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Page -->
+        <section id="quizPage" class="page">
+            <div class="container">
+                <div class="quiz-container">
+                    <div class="quiz-header">
+                        <span class="quiz-counter" id="quizCounter"></span>
+                        <span class="quiz-score" id="quizScore"></span>
+                    </div>
+                    <div class="quiz-progress">
+                        <div class="quiz-progress-fill" id="quizProgress"></div>
+                    </div>
+                    <div class="quiz-question" id="quizQuestion"></div>
+                    <div class="quiz-options" id="quizOptions"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Page -->
+        <section id="resultsPage" class="page">
+            <div class="container">
+                <div class="results-container">
+                    <div class="result-icon" id="resultIcon"></div>
+                    <h2 class="result-title" id="resultTitle"></h2>
+                    <div class="result-score">
+                        <div class="score-percentage" id="scorePercentage"></div>
+                        <p class="score-text" id="scoreText"></p>
+                    </div>
+                    <div class="result-summary">
+                        <h3>Answers Summary</h3>
+                        <div class="summary-item">
+                            <span>Correct Answers</span>
+                            <span class="correct-count" id="correctCount"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Wrong Answers</span>
+                            <span class="wrong-count" id="wrongCount"></span>
+                        </div>
+                    </div>
+                    <div class="result-actions">
+                        <button class="btn-success" onclick="tryNewLesson()">Try New Lesson</button>
+                        <button class="btn-secondary" onclick="goToHome()">Back to Home</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📚</span>
+                        <span class="logo-text">StoryLearn</span>
+                    </div>
+                    <p class="footer-description">
+                        An interactive educational platform that turns lessons into 
+                        engaging stories for an unforgettable learning experience.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="goToHome()">Home</a></li>
+                        <li><a href="#" onclick="goToSubjects()">Subjects</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-contact">
+                        <li>📧 info@storylearn.com</li>
+                        <li>📱 +20 123 456 7890</li>
+                        <li>📍 Qena, Egypt</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-x-twitter"></i>
+                        <i class="fa-brands fa-linkedin"></i>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Subscribe to Newsletter</h4>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Your email">
+                            <button>Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 StoryLearn. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="java.js"></script>
+</body>
+</html>
